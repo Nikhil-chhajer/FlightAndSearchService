@@ -1,5 +1,5 @@
 const express=require("express");
-const {PORT} = require('./config/serverconfig.js');
+const {PORT} = require('../config/serverconfig.js');
 const port=process.env.PORT
 const setupAndStartServer=async()=>{
     const app=express(); 
