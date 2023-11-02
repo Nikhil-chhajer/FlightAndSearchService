@@ -1,9 +1,9 @@
 const {CityService}=require('../services/index.js');
-const cityService=new CityService();
+const cityService= new CityService();
 
-const create=async (res,req)=>{
+const create=async (req,res)=>{
      try {
-        const city=await cityService.createCity(req.body)
+        const city=await cityService.createCity(req.body);
         return res.status(201).json({
             data :city,
             success:true,
@@ -21,7 +21,7 @@ const create=async (res,req)=>{
      }
 }
 //DELETE -> /city/:id
-const destroy=async(res,req)=>{
+const destroy=async(req,res)=>{
     try {
         const response=await cityService.deleteCity(req.params.id)
         return res.status(200).json({
@@ -42,7 +42,7 @@ const destroy=async(res,req)=>{
     }
 }
 //GET. -> /city/:id
-const get=async(res,req)=>{
+const get=async(req,res)=>{
     try {
         const response=await cityService.getCity(req.params.id)
         return res.status(200).json({
@@ -62,7 +62,7 @@ const get=async(res,req)=>{
     }
 }
 //PATCH -> /city/:id ->req.body
-const update=async(res,req)=>{
+const update=async(req,res)=>{
     try {
         const response=await cityService.updateCity(req.params.id,req.body)
         return res.status(200).json({
@@ -80,4 +80,7 @@ const update=async(res,req)=>{
             err:error
         })
     }
+}
+module.exports={
+    create,update,get,destroy
 }

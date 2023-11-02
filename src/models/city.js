@@ -14,14 +14,16 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   City.init({
-    name: DataTypes.STRING,
-    allowNull: false,
-    unique:true
-  }, {
+    
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+    }
+  }, 
+  {
     sequelize,
     modelName: 'City',
   });
   return City;
 };
-//name of the models is generally in singular form but the name of the tables is in plural form
-//city.js is allowed to throw error at javascript level where the file in models will error in databases level

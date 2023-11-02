@@ -1,7 +1,8 @@
 //In repository we will write all interaction with the models
 //In services we will write the business logic
 //In controller we will hit the API's
-const {City}= require('../models/city');
+const {City}= require('../models/index');
+
 class CityRepository{
     async createCity({name}){
         try{
@@ -29,13 +30,21 @@ class CityRepository{
 
 
     async updateCity(cityId,data){
-        try {
-            const city= await City.update(data,{
-                where:{
-                    id :cityId
-                }
-            });
+        //The below approach also works but will not return updated object
+        //if we use Pg then returning :true can be used else not
+        // try {
+        //     const city= await City.update(data,{
+        //         where:{
+        //             id :cityId
+        //         },
+        //     });
+        //for getting updated data in mysql we use the below approach
+        try{
+            const city=await City.findByPk(cityId);
+            city.name=data.name;
+            await city.save();
             return city;
+        
         } catch (error) {
             console.log("something wrong in the repository layer");
             throw {error};
@@ -44,7 +53,7 @@ class CityRepository{
     }
     async getCity(cityId){
         try{
-            const city=await City.findByPK(cityId);
+            const city=await City.findByPk(cityId);
             return city;
         }
         catch(error){

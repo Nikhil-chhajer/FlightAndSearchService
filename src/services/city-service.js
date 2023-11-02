@@ -32,7 +32,7 @@ class CityService {
             const city = await this.cityRepository.updateCity(cityId,data);
             return city;
         } catch (error) {
-            console.log("something wrong in the Services layer");
+            console.log("something wrong in the Service layer");
             throw { error };
         }
 
@@ -43,10 +43,10 @@ class CityService {
             return city;
         }
         catch (error) {
-            console.log("something wrong in the repository layer");
+            console.log("something wrong in the Service layer");
             throw { error };
         }
     }
 
 }
-module.exports=CityService;
+module.exports=CityService
