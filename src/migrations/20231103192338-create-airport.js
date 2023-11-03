@@ -22,9 +22,9 @@ module.exports = {
         references:{
           model:'Cities',
           key:'id',
-          as:'cityId'
-
+          as:'cityId',
         },
+        
         allowNull:false
       },
       createdAt: {
@@ -34,8 +34,10 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
-      }
-    });
+      },
+      
+    }
+    );
   },
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('Airports');
