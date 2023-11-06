@@ -39,10 +39,10 @@ const setupAndStartServer = async () => {
         // })
         //console.log(city, airports);
 
-         await Airplane.create({
-            modelNumber:'Bombardier CRJ',
-            //capacity:200
-         });
+        //  await Airplane.create({
+        //     modelNumber:'Bombardier CRJ',
+        //     //capacity:100 bina capacity input kiya nhi automatic capaccity aa jaye gee kyuki hum default valueset kari hai 200
+        //  });
 
     })
 }
