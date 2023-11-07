@@ -1,4 +1,5 @@
 const { Airplane } = require('../models/index');
+
 class AirplaneRepository {
     async getAirplane(id) {
         try {
@@ -11,5 +12,7 @@ class AirplaneRepository {
         }
     }
 }
+
+
 
 module.exports=AirplaneRepository;
